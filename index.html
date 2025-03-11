@@ -131,22 +131,9 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 300;
-            /* Lighter for elegance */
-            color: var(--primary);
-            letter-spacing: 2px;
-            /* Increased letter spacing */
-        }
-
-        .logo span {
-            color: var(--secondary);
         }
 
         .nav-links {
@@ -184,9 +171,30 @@
             overflow: hidden;
         }
 
-        .hero-content {
-            z-index: 1;
-            max-width: 700px;
+        /* Updated Hero Layout */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            /* Remove oval effect and allow natural shape */
+        }
+
+        .hero-image img {
+            max-width: 300px;
+            width: 100%;
+            border-radius: 0; /* Natural shape */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            -webkit-mask-image: radial-gradient(circle, white 70%, transparent 100%);
+            mask-image: radial-gradient(circle, white 70%, transparent 100%);
+}
+
+        .hero-text {
+            max-width: 500px;
         }
 
         .hero-title {
@@ -219,18 +227,6 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s forwards 0.9s;
-        }
-
-        .robot-animation {
-            position: absolute;
-            right: 5%;
-            bottom: 0;
-            width: 400px;
-            height: 400px;
-            background: url('/api/placeholder/400/320') no-repeat;
-            background-size: contain;
-            opacity: 0.8;
-            animation: float 6s ease-in-out infinite;
         }
 
         /* About Section */
@@ -462,6 +458,13 @@
             font-size: 1rem;
         }
 
+        /* Updated: Display text links in email and LinkedIn with same font styling */
+        #contact .contact-item a {
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
         .contact-form {
             width: 100%;
         }
@@ -562,6 +565,15 @@
             font-size: 1.1rem;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        .social-icon a {
+            text-decoration: none;
+        }
+
+
         /* Animations */
         @keyframes fadeInUp {
             to {
@@ -602,10 +614,12 @@
                 font-size: 1.3rem;
             }
 
-            .robot-animation {
-                width: 250px;
-                height: 250px;
-                opacity: 0.5;
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                margin-bottom: 20px;
             }
 
             .contact-info {
@@ -615,36 +629,25 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
-        }
+            .project-card {
+                text-decoration: none; /* Removes underline */
+                color: inherit; /* Keeps the text color same as normal content */
+                display: block;
+            }
 
-        /* Custom modifications for name font and contact section */
-        .logo a {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: #000 !important;
-        }
+            .project-card:hover {
+                text-decoration: none; /* Ensures no underline on hover */
+            }
 
-        #contact .contact-grid {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #contact .contact-item a {
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header (Logo removed, nav centered) -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <a href="#home">Anbarasan<span>K</span></a>
-                </div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -656,45 +659,40 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Headshot on Left and Content on Right -->
     <section id="home" class="section">
-        <div class="container">
-            <div class="hero-content">
+        <div class="container hero-container">
+            <div class="hero-image">
+                <img src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/20250226_134107.jpg"
+                    alt="Headshot">
+            </div>
+            <div class="hero-text">
                 <h1 class="hero-title">Anbarasan Kandasamy</h1>
                 <h2 class="hero-subtitle">Robotics Engineer | Autonomous Systems</h2>
                 <div class="hero-cta">
                     <a href="#projects" class="btn">View My Projects</a>
                 </div>
             </div>
-            <!-- Add your headshot image here -->
-            <img src="path/to/your/headshot.jpg" alt="Anbarasan Kandasamy Headshot" class="headshot">
-            <div class="robot-animation"></div>
         </div>
     </section>
-
 
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="/api/placeholder/400/320" alt="Anbarasan Kandasamy">
-                </div>
+            <div class="about-container" style="text-align: center;">
                 <div class="about-content">
                     <h3>Robotics Engineer & Autonomous Systems Specialist</h3>
                     <p>I am a Master's student in Robotics at the University of Maryland, specializing in planning,
                         perception, and autonomous navigation systems. With a background in Mechanical Engineering and
                         professional experience in robotics development, I am passionate about creating intelligent
                         robotic solutions for real-world problems.</p>
-
                     <p>My expertise spans across various domains of robotics including motion planning algorithms,
                         computer vision systems, and machine learning applications in robotics.</p>
-
-                    <div class="skills-container">
+                    <div class="skills-container" style="margin: 0 auto; text-align: center;">
                         <div class="skill-category">
                             <h4 class="skill-title">Programming & Development</h4>
-                            <div class="skills">
+                            <div class="skills" style="justify-content: center;">
                                 <div class="skill">Python</div>
                                 <div class="skill">C++</div>
                                 <div class="skill">ROS1</div>
@@ -705,10 +703,9 @@
                                 <div class="skill">CUDA</div>
                             </div>
                         </div>
-
                         <div class="skill-category">
                             <h4 class="skill-title">Expertise Areas</h4>
-                            <div class="skills">
+                            <div class="skills" style="justify-content: center;">
                                 <div class="skill">Planning</div>
                                 <div class="skill">Perception</div>
                                 <div class="skill">Autonomous Navigation</div>
@@ -716,10 +713,9 @@
                                 <div class="skill">Neural Networks</div>
                             </div>
                         </div>
-
                         <div class="skill-category">
                             <h4 class="skill-title">Tools & Simulation</h4>
-                            <div class="skills">
+                            <div class="skills" style="justify-content: center;">
                                 <div class="skill">Gazebo</div>
                                 <div class="skill">Rviz</div>
                                 <div class="skill">SolidWorks</div>
@@ -731,6 +727,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -740,71 +737,55 @@
             <h2 class="section-title">Research & Projects</h2>
             <div class="projects-container">
                 <!-- Project 1 -->
-                <div class="project-card">
+                <a href="https://github.com/anbarasank2000/ENPM701-Autonomous-Robotics" target="_blank" class="project-card">
                     <div class="project-image">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-content">
                         <div class="project-date">May 2024</div>
                         <h3 class="project-title">Autonomous Robotics – Grand Challenge</h3>
-                        <p>Developed a mobile robot capable of autonomously navigating cluttered environments and
-                            performing pick-and-place operations, successfully collecting 4 out of 6 colored blocks.</p>
-                        <p>Implemented advanced robotics algorithms, including image processing for object recognition,
-                            motion control, and localization.</p>
+                        <p>Developed a mobile robot capable of autonomously navigating cluttered environments and performing
+                            pick-and-place operations.</p>
                     </div>
-                </div>
-
+                </a>
+            
                 <!-- Project 2 -->
-                <div class="project-card">
+                <a href="https://github.com/anbarasank2000/Review-on-Path-Planning-algorithms" target="_blank" class="project-card">
                     <div class="project-image">
                         <i class="fas fa-route"></i>
                     </div>
                     <div class="project-content">
                         <div class="project-date">May 2024</div>
                         <h3 class="project-title">Improved RRT-Connect Algorithm for Path Planning</h3>
-                        <p>Enhanced RRT-Connect with target-biased sampling and adaptive step length to accelerate
-                            exploration and improve path efficiency.</p>
-                        <p>Applied a shortcutting technique to smooth final paths, reducing abrupt direction changes and
-                            improving overall path quality.</p>
-                        <p>Achieved a 46.45% performance improvement in speed and optimality compared to standard
-                            RRT-Connect.</p>
+                        <p>Enhanced RRT-Connect with target-biased sampling and adaptive step length to improve path efficiency.</p>
                     </div>
-                </div>
-
+                </a>
+            
                 <!-- Project 3 -->
-                <div class="project-card">
+                <a href="https://github.com/anbarasank2000/TurtleBot3-Perception-Challenge" target="_blank" class="project-card">
                     <div class="project-image">
                         <i class="fas fa-camera"></i>
                     </div>
                     <div class="project-content">
                         <div class="project-date">May 2024</div>
                         <h3 class="project-title">Perception Challenge on Turtlebot Waffle-Pi</h3>
-                        <p>Successfully completed all four project tasks: projective geometry, homography-based lane
-                            following, object detection, and dynamic obstacle handling.</p>
-                        <p>Implemented vision-based navigation using the robot's camera, overlaying vanishing points and
-                            horizon lines for accurate spatial understanding.</p>
-                        <p>Developed real-time stop sign detection and optical flow techniques for dynamic obstacle
-                            recognition, ensuring safe and efficient robot motion.</p>
+                        <p>Implemented vision-based navigation and real-time stop sign detection for autonomous driving.</p>
                     </div>
-                </div>
-
+                </a>
+            
                 <!-- Project 4 -->
-                <div class="project-card">
+                <a href="https://github.com/yourusername/repo4" target="_blank" class="project-card">
                     <div class="project-image">
                         <i class="fas fa-qrcode"></i>
                     </div>
                     <div class="project-content">
                         <div class="project-date">December 2023</div>
                         <h3 class="project-title">ROS-based Object Detection and Navigation with ArUCo Markers</h3>
-                        <p>Created ROS nodes, publishers and subscribers, and implemented frame broadcasting and
-                            listening techniques to navigate through 5 distinct poses with 90% accuracy in pose
-                            estimation.</p>
-                        <p>Retrieved appropriate parameters from ArUCo markers, detected various parts using logical
-                            cameras, and used action clients to execute sequential tasks, enabling the robot to navigate
-                            through multiple poses in a predefined order.</p>
+                        <p>Developed a ROS-based perception system for object detection using ArUCo markers.</p>
                     </div>
-                </div>
+                </a>
             </div>
+
         </div>
     </section>
 
@@ -853,9 +834,10 @@
             <h2 class="section-title">Contact</h2>
             <div class="contact-grid">
                 <div class="contact-info">
+                    <!-- Email: Icon and Text Link -->
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>anbuk@umd.edu</p>
+                        <a href="mailto:anbuk@umd.edu">anbuk@umd.edu</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -865,10 +847,10 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>College Park, MD</p>
                     </div>
+                    <!-- LinkedIn: Icon and Text Link -->
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <p><a href="https://linkedin.com/in/anbarasan-kandasamy/"
-                                style="color: white; text-decoration: none;">/anbarasan-kandasamy</a></p>
+                        <a href="https://linkedin.com/in/anbarasan-kandasamy/" target="_blank">/anbarasan-kandasamy</a>
                     </div>
                 </div>
                 <div class="contact-form">

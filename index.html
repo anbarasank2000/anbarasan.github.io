@@ -331,15 +331,13 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .project-image {
-            height: 200px;
-            background-color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
+        .project-image img {
+            width: 100%; /* Makes it fill the container */
+            max-height: 200px; /* Optional: keeps consistent height */
+            object-fit: cover; /* Makes sure it crops nicely without stretching */
+            border-radius: 5px; /* Optional: keeps the rounded corners */
         }
+
 
         .project-content {
             padding: 25px;
@@ -739,8 +737,9 @@
                 <!-- Project 1 -->
                 <a href="https://github.com/anbarasank2000/ENPM701-Autonomous-Robotics" target="_blank" class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
+                        <img src="https://raw.githubusercontent.com/anbarasank2000/ENPM701-Autonomous-Robotics/main/VN20250203_171153.gif" 
+                             alt="Autonomous Robotics Demo">
+                    </div>                    
                     <div class="project-content">
                         <div class="project-date">May 2024</div>
                         <h3 class="project-title">Autonomous Robotics – Grand Challenge</h3>
@@ -752,7 +751,8 @@
                 <!-- Project 2 -->
                 <a href="https://github.com/anbarasank2000/Review-on-Path-Planning-algorithms" target="_blank" class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-route"></i>
+                        <img src="https://raw.githubusercontent.com/anbarasank2000/Review-on-Path-Planning-algorithms/main/rrt.gif" 
+                             alt="Autonomous Robotics Demo">
                     </div>
                     <div class="project-content">
                         <div class="project-date">May 2024</div>
@@ -764,7 +764,8 @@
                 <!-- Project 3 -->
                 <a href="https://github.com/anbarasank2000/TurtleBot3-Perception-Challenge" target="_blank" class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-camera"></i>
+                        <img src="https://raw.githubusercontent.com/anbarasank2000/Review-on-Path-Planning-algorithms/main/rrt.gif" 
+                             alt="Autonomous Robotics Demo">
                     </div>
                     <div class="project-content">
                         <div class="project-date">May 2024</div>

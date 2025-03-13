@@ -358,6 +358,86 @@
             /* Italic dates for elegance */
         }
 
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certification-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            gap: 15px;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1rem;
+            color: var(--secondary);
+            background: rgba(78, 122, 199, 0.1);
+            padding: 6px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+        }
+
+        .certification-content {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        .certification-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .certification-issuer {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .certification-date {
+            font-size: 1rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .certification-id, 
+        .certification-skills {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .certification-id span,
+        .certification-skills span {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+
+
         /* Experience Section - Simplified */
         #experience {
             background-color: white;
@@ -637,6 +717,9 @@
                 text-decoration: none; /* Ensures no underline on hover */
             }
 
+            
+
+
         }
     </style>
 </head>
@@ -805,6 +888,76 @@
 
         </div>
     </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-container">
+                <!-- Certification 1 -->
+                <a href="https://app.theconstruct.ai/Accomplishments/Verify/RIAE24C5F26D53C" target="_blank"
+                    class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Code Foundation for ROS - Robotic Operating System</h3>
+                        <p class="certification-issuer">The Construct Robotics Institute</p>
+                        <p class="certification-date">Issued Mar 2022</p>
+                        <p class="certification-id">Credential ID: <span>RIAE24C5F26D53C</span></p>
+                        <p class="certification-skills">Skills: <span>Robot Operating System (ROS)</span></p>
+                    </div>
+                </a>
+    
+                <!-- Certification 2 -->
+                <a href="https://www.coursera.org/account/accomplishments/certificate/ZMATVWH6N9T8" target="_blank"
+                    class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Introduction to Computer Vision and Image Processing</h3>
+                        <p class="certification-issuer">IBM</p>
+                        <p class="certification-date">Issued Feb 2022</p>
+                        <p class="certification-id">Credential ID: <span>ZMATVWH6N9T8</span></p>
+                        <p class="certification-skills">Skills: <span>Computer Vision · Perception</span></p>
+                    </div>
+                </a>
+    
+                <!-- Certification 3 -->
+                <a href="https://www.coursera.org/account/accomplishments/certificate/N2NFDY2E72E9" target="_blank"
+                    class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Introduction to Deep Learning & Neural Networks with Keras</h3>
+                        <p class="certification-issuer">IBM</p>
+                        <p class="certification-date">Issued Feb 2022</p>
+                        <p class="certification-id">Credential ID: <span>N2NFDY2E72E9</span></p>
+                        <p class="certification-skills">Skills: <span>Deep Learning · Neural Networks</span></p>
+                    </div>
+                </a>
+    
+                <!-- Certification 4 -->
+                <a href="https://www.coursera.org/account/accomplishments/certificate/L8WVEZBN5M5R" target="_blank"
+                    class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Machine Learning with Python</h3>
+                        <p class="certification-issuer">IBM</p>
+                        <p class="certification-date">Issued Jan 2022</p>
+                        <p class="certification-id">Credential ID: <span>L8WVEZBN5M5R</span></p>
+                        <p class="certification-skills">Skills: <span>Machine Learning · Python (Programming
+                                Language)</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Experience Section - Simplified -->
     <section id="experience" class="section">

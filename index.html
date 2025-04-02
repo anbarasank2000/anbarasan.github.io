@@ -804,15 +804,40 @@
             justify-content: space-between;
             gap: 20px;
             margin-top: 15px;
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Adjust as needed */
+            margin: auto;
         }
 
         .exhibition-image {
             max-width: 100%;
             height: auto;
             display: block;
+            border-radius: 10px;
         }
 
+        .next-button {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;  /* Makes it round */
+            height: 40px; /* Equal width & height */
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%; /* Ensures round shape */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .next-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
 
     </style>
 </head>
@@ -1113,6 +1138,24 @@
                             </div>
 
                         </div>
+
+                        <!-- Section 3: Workshop Experience -->
+                        <div class="blog-section">
+                            <h3>Workshops</h3>
+                            <p>Had the incredible opportunity to conduct a two-day workshop on Autonomous Mobile Robot (AMR) Localization and
+                                Navigation using the ROS platform. This event was proudly sponsored by The Robotics Society, India - Student
+                                Chapter. This workshop was more than just a learning experience - it was a step toward building a strong
+                                robotics
+                                community.</p>
+                        
+                            <!-- Exhibition Photo (Slider) -->
+                            <div class="exhibition-container">
+                                <img id="exhibitionImage"
+                                    src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/srec1.jpg"
+                                    alt="Exhibition with Mayilsamy Annadurai" class="exhibition-image">
+                                <button id="nextBtn" class="next-button">&#10095;</button>
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -1235,6 +1278,18 @@
         }
     </script>
         
+    <script>
+        const images = [
+            "https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/srec1.jpg",
+            "https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/srec2.jpg"
+        ];
+        let currentIndex = 0;
+
+        document.getElementById("nextBtn").addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("exhibitionImage").src = images[currentIndex];
+        });
+    </script>
         
 </body>
 

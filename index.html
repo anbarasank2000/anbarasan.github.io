@@ -235,11 +235,24 @@
         }
 
         .about-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
             gap: 40px;
-            /* Increased gap */
         }
+
+        .about-left, .about-right {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;   /* center content horizontally */
+        }
+
+        .about-content {
+            text-align: justify;
+        }
+
 
         .about-image {
             overflow: hidden;
@@ -269,6 +282,9 @@
 
         .skills-container {
             margin-top: 30px;
+            max-width: 500px;
+            text-align: center
+            
         }
 
         .skill-category {
@@ -288,8 +304,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: center; /* ✅ center-align skill tags */
         }
-
         .skill {
             background-color: var(--light);
             padding: 8px 16px;
@@ -444,8 +460,10 @@
         }
 
         .experience-container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .experience-card {
@@ -676,6 +694,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+            }
             .section {
                 padding: 70px 0;
             }
@@ -736,11 +758,10 @@
 
         /* Blog Section - Initially Hidden */
         #robotic-blog {
-            display: none;
-            opacity: 0;
-            overflow-y: auto;
-            max-height: 80vh; 
-            transition: opacity 0.8s ease, max-height 0.8s ease;
+            display: block;
+            opacity: 1;
+            overflow: visible;
+            max-height: none;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 10px;
@@ -748,6 +769,7 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
+
 
         /* Blog Content Styling */
         .blog-content {
@@ -787,15 +809,23 @@
         } */
         .media-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             gap: 20px;
-            margin-top: 15px;
+            flex-wrap: wrap; /* ✅ makes it mobile-friendly */
+            margin-bottom: 40px;
         }
 
         /* Ensure both media elements take equal space */
         .blog-video, .blog-image {
             width: 48%; /* Adjust for even spacing */
             max-width: 600px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .small-media {
+            width: 100%;
+            max-width: 300px;
             border-radius: 10px;
             object-fit: cover;
         }
@@ -879,21 +909,23 @@
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-container" style="text-align: center;">
-                <div class="about-content">
-                    <h3>Robotics Engineer & Autonomous Robotics Enthusiast</h3>
-                    <p>As a robotics enthusiast, I've always been driven by curiosity about how things work, from the laptop screen I stare
-                        at daily to the neural networks powering modern AI.</p>
-                    <p>I am a Master's student in Robotics at the University of Maryland, specializing in planning,
-                        perception, and autonomous navigation systems. With a background in Mechanical Engineering and
-                        professional experience in robotics development, I am passionate about creating intelligent
-                        robotic solutions for real-world problems. My expertise spans across various domains of robotics including motion planning algorithms,
-                        computer vision systems, and machine learning applications in robotics.</p>
-                    <p>With a strong foundation in SLAM, sensor fusion, ROS 2, and computer vision, I have built and optimized mobile robots for real-world navigation and manipulation tasks. My background spans across multi-sensor integration, motion planning, and deep learning-based perception, supported by solid programming skills in C++, Python, and Linux. I enjoy solving complex problems in dynamic environments and have successfully collaborated with cross-functional teams to bring robotic solutions from prototype to deployment. I'm currently seeking opportunities where I can contribute to advanced robotics development and continue building intelligent, real-time systems.</p>
-                    <div class="skills-container" style="margin: 0 auto; text-align: center;">
+            <div class="about-container">
+                <!-- Left Column: About Me -->
+                <div class="about-left">
+                    <div class="about-content">
+                        <p>As a robotics enthusiast, I've always been driven by curiosity about how things work, from the laptop screen I stare at daily to the neural networks powering modern AI.</p>
+                        <p>I am a Master's student in Robotics at the University of Maryland, specializing in planning, perception, and autonomous navigation systems...</p>
+                        <p>My expertise spans across various domains of robotics including motion planning algorithms, computer vision systems, and machine learning applications in robotics.</p>
+                        <p>With a strong foundation in SLAM, sensor fusion, ROS 2, and computer vision, I have built and optimized mobile robots for real-world navigation and manipulation tasks. My background spans across multi-sensor integration, motion planning, and deep learning-based perception, supported by solid programming skills in C++, Python, and Linux. I enjoy solving complex problems in dynamic environments and have successfully collaborated with cross-functional teams to bring robotic solutions from prototype to deployment. I'm currently seeking opportunities where I can contribute to advanced robotics development and continue building intelligent, real-time systems.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Skills -->
+                <div class="about-right">
+                    <div class="skills-container">
                         <div class="skill-category">
                             <h4 class="skill-title">Programming & Development</h4>
-                            <div class="skills" style="justify-content: center;">
+                            <div class="skills">
                                 <div class="skill">Python</div>
                                 <div class="skill">C++</div>
                                 <div class="skill">ROS1</div>
@@ -906,7 +938,7 @@
                         </div>
                         <div class="skill-category">
                             <h4 class="skill-title">Expertise Areas</h4>
-                            <div class="skills" style="justify-content: center;">
+                            <div class="skills">
                                 <div class="skill">Planning</div>
                                 <div class="skill">Perception</div>
                                 <div class="skill">Autonomous Navigation</div>
@@ -916,7 +948,7 @@
                         </div>
                         <div class="skill-category">
                             <h4 class="skill-title">Tools & Simulation</h4>
-                            <div class="skills" style="justify-content: center;">
+                            <div class="skills">
                                 <div class="skill">Gazebo</div>
                                 <div class="skill">Rviz</div>
                                 <div class="skill">SolidWorks</div>
@@ -928,6 +960,8 @@
                     </div>
                 </div>
             </div>
+
+
 
         </div>
     </section>
@@ -1004,7 +1038,7 @@
                 </a>
 
                 <!-- Project 6 -->
-                <a href="https://github.com/anbarasank2000/AI-and-Deep-Learning" target="_blank" class="project-card">
+                <a href="https://https://github.com/anbarasank2000/AI-and-Deep-Learning" target="_blank" class="project-card">
                     <div class="project-image">
                         <img src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/CIFAR%20dataset%20gif.gif" 
                              alt="Autonomous Robotics Demo">
@@ -1101,41 +1135,34 @@
                         <h3 class="experience-title">Robotics Engineer</h3>
                         <span class="experience-date">June 2022 - July 2023</span>
                     </div>
-                    <h4 class="experience-company">Yoi Robotics Laboratory, Coimbatore, India</h4>
-                    <p>Designed a compact Autonomous Mobile Robot (AMR) with a focus on space efficiency, incorporating
-                        Lidar and IR sensors for its vision systems. With a payload capacity of 15 kg, the project was
-                        specifically tailored for office logistics applications and reduced footprint by 25%, enhancing
-                        space efficiency.</p>
-                    <p>Contributed to the development of the autonomous robot by specializing in design, control, and
-                        Simultaneous Localization and Mapping (SLAM), achieving 95% obstacle avoidance and SLAM mapping
-                        accuracy.</p>
-                    <!-- Read More Button -->
-                    <button class="read-more-btn" onclick="toggleBlog()">More</button>
-                </div>
+                        <h4 class="experience-company">Yoi Robotics Laboratory, Coimbatore, India</h4>
+                    
+                        <h3>Developing the Autonomous Mobile Robot (AMR)</h3>
+                        <p>• Developed a compact Autonomous Mobile Robot (AMR) incorporating LiDAR and IR for vision systems and implemented SLAM techniques and real-time debugging in C++ and ROS 2 to enable reliable localization and map building. 
+                        </p>
+                        <p>• Enhanced space efficiency by 25% and ensuring reliable integration of sensor data for optimized logistics.
+                        </p>
+                        
+                        <p>• Improved localization accuracy by 30% by optimizing sensor fusion pipelines via the robot_localization package with an Extended Kalman Filter (EKF), integrating wheel encoder odometry and IMU data for improved state estimation. </p>
+                        
+                        <p>• Collaborated with multidisciplinary teams to refine mechanical and electrical components, and conducted over three
+                            introductory sessions on ROS and Arduino microcontrollers, training 300+ students and fostering cross-functional
+                            communication.</p>
 
-                <!-- Hidden Blog Section -->
-                <div id="robotic-blog">
-                    <div class="blog-content">
-                        <h2>My Experience at YOI Robotics Lab</h2>
 
-                        <!-- Section 1: About the AMR -->
-                        <div class="blog-section">
-                            <h3>Developing the Autonomous Mobile Robot (AMR)</h3>
-                            <p>At YOI Robotics Lab, I worked on a compact AMR with Lidar and IR sensors for vision. The robot, designed for office logistics, could carry up to 15kg and achieved a 25% footprint reduction.</p>
+                        <!-- Video and Image Side by Side -->
+                        <div class="media-container">
+                            <!-- AMR Video -->
+                            <video controls class="blog-video small-media">
+                                <source src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/VID-20231125-WA0000.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
 
-                            <!-- Video and Image Side by Side -->
-                            <div class="media-container">
-                                <!-- AMR Video -->
-                                <video controls class="blog-video">
-                                    <source src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/VID-20231125-WA0000.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-
-                                <!-- AMR Image -->
-                                <img src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/VideoCapture_20250401-2026.jpg" 
-                                    alt="Autonomous Mobile Robot" class="blog-image">
-                            </div>
+                            <!-- AMR Image -->
+                            <img src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/VideoCapture_20250401-2026.jpg" 
+                                alt="Autonomous Mobile Robot" class="blog-image small-media">
                         </div>
+                    
 
                         <!-- Section 2: Exhibition Experience -->
                         <div class="blog-section">
@@ -1162,14 +1189,14 @@
                             <!-- Exhibition Photo (Slider) -->
                             <div class="exhibition-container">
                                 <img id="exhibitionImage"
-                                    src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/srec1.jpg"
+                                    src="https://raw.githubusercontent.com/anbarasank2000/anbarasan.github.io/main/srec1_4.jpg"
                                     alt="Exhibition with Mayilsamy Annadurai" class="exhibition-image">
                                 <button id="nextBtn" class="next-button">&#10095;</button>
                             </div>
-                        </div>
-                        
                     </div>
                 </div>
+
+                
 
 
 
@@ -1269,7 +1296,7 @@
             contactForm.reset();
         });
     </script>
-    <script>
+    <!-- <script>
         function toggleBlog() {
             var blogSection = document.getElementById("robotic-blog");
         
@@ -1287,7 +1314,7 @@
                 }, 800); // Matches the transition duration
             }
         }
-    </script>
+    </script> -->
         
     <script>
         const images = [

@@ -694,6 +694,34 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            #home {
+                padding: 40px 20px;
+                height: auto;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                gap: 20px;
+                padding-top: 60px; /* make room for fixed nav */
+            }
+
+            .hero-title {
+                font-size: 2.2rem; /* larger than before on mobile */
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .hero-image img {
+                max-width: 180px; /* smaller, but not tiny */
+            }
+
+            .hero-cta {
+                text-align: center;
+            }
             .about-container {
                 flex-direction: column;
                 align-items: center;

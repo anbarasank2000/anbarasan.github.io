@@ -329,8 +329,9 @@
 
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, 350px);
             gap: 30px;
+            justify-content: center;
         }
 
         .project-card {
@@ -1080,6 +1081,22 @@
                         <p>Machine Learning and Deep Learning approaches applied to the CIFAR-10 dataset, starting from classical methods like KNN and SVM to deep neural networks implemented manually and using PyTorch.</p>
                     </div>
                 </a>
+
+                <!-- Project 7 -->
+                <a href="https://github.com/anbarasank2000/Perception" target="_blank" class="project-card">
+                    <div class="project-image exhibition-container">
+                        <img id="perceptionImage" 
+                            src="https://raw.githubusercontent.com/anbarasank2000/Perception/main/Object%20Tracking/Object_tracking-ezgif.com-video-to-gif-converter.gif" 
+                            alt="Perception Project Demo" class="exhibition-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-date">Feb 2024</div>
+                        <h3 class="project-title">Perception – Core Implementations</h3>
+                        <p>Implemented core computer vision techniques from scratch using OpenCV and NumPy, including object tracking, edge detection, image stitching, camera calibration, and stereo depth estimation. Focused on building a hands-on understanding of vision fundamentals by avoiding high-level abstraction functions.</p>
+
+                    </div>
+                </a>
+
             </div>
 
         </div>
@@ -1359,7 +1376,27 @@
             document.getElementById("exhibitionImage").src = images[currentIndex];
         });
     </script>
-        
+     
+    <script>
+        const perceptionImages = [
+            "https://raw.githubusercontent.com/anbarasank2000/Perception/main/Object%20Tracking/Object_tracking-ezgif.com-video-to-gif-converter.gif",
+            "https://raw.githubusercontent.com/anbarasank2000/Perception/main/Object%20Tracking/download.png",
+            "https://raw.githubusercontent.com/anbarasank2000/Perception/main/Edge%20Detection%20and%20Image%20Stitching/output_video3-ezgif.com-crop.gif",
+            "https://raw.githubusercontent.com/anbarasank2000/Perception/main/Cam%20Calibration%20and%20Depth%20Estimate/download.png",
+            "https://raw.githubusercontent.com/anbarasank2000/Perception/main/Cam%20Calibration%20and%20Depth%20Estimate/Depth%20Map.png"
+        ];
+
+        let perceptionIndex = 0;
+        const perceptionImgElement = document.getElementById("perceptionImage");
+
+        // Auto change every 4 seconds
+        setInterval(() => {
+            perceptionIndex = (perceptionIndex + 1) % perceptionImages.length;
+            perceptionImgElement.src = perceptionImages[perceptionIndex];
+        }, 4000);
+    </script>
+
+ 
 </body>
 
 </html>
